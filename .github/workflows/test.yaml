@@ -1,0 +1,18 @@
+name: "sample demp pipeline creation"
+ 
+on: [workflow_dispatch] #manual trigger 
+
+jobs:
+  Self-hosted_Job:
+    name: "Self Hosted Job"
+    #runs-on: UGHAutonomy_1.3.0
+ 
+    steps:
+    - uses: actions/checkout@v4
+    - name: Echo info about agent to log
+      run: |
+        echo "Running on `hostname` ($RUNNER_ENVIRONMENT - $RUNNER_NAME)"
+        echo "Current Directory is `pwd`"
+        echo "Workspace Directory is $GITHUB_WORKSPACE"
+        echo "Operating system details: "
+        lsb_release -a
